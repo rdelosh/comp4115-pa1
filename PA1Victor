@@ -1,0 +1,175 @@
+
+STUDENT NAME: VICTOR DE LOS SANTOS
+Part one
+1.
+mysql> use test;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> 
+
+2.
+mysql> use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> desc func;
++-------+------------------------------+------+-----+---------+-------+
+| Field | Type                         | Null | Key | Default | Extra |
++-------+------------------------------+------+-----+---------+-------+
+| name  | char(64)                     | NO   | PRI |         |       |
+| ret   | tinyint(1)                   | NO   |     | 0       |       |
+| dl    | char(128)                    | NO   |     |         |       |
+| type  | enum('function','aggregate') | NO   |     | NULL    |       |
++-------+------------------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> 
+
+3.
+mysql> create database us_states;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use us_states;
+Database changed
+
+mysql> create table states (name VARCHAR(20), population int, id VARCHAR(5), culture varchar(20), other enum('ss'));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_us_states |
++----------------------+
+| states2              |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> desc states;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| name       | varchar(20) | YES  |     | NULL    |       |
+| population | int(11)     | YES  |     | NULL    |       |
+| id         | varchar(5)  | YES  |     | NULL    |       |
+| culture    | varchar(20) | YES  |     | NULL    |       |
+| other      | enum('ss')  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into states2 (name, population) values ("Tennessee", 6300000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into states2 (name, population) values ("Mississippi", 3000000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into states2 (name, population) values ("Kentucky", 4395000);Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into states2 (name, population) values ("Missouri", 6044000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into states2 (name, population) values ("Florida", 19000000);Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into states2 (name, population) values ("California", 38000000);Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into states2 (name, population) values ("Texas", 26000000);Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into states2 (name, population) values ("New Jersey", 8900000);Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into states2 (name, population) values ("Oklahoma", 3800000);Query OK, 1 row affected (0.00 sec)
+
+Part Two:
+
+mysql> select * from states order by population desc;
++----------------+------------+------+---------+-------+
+| name           | population | ID   | culture | other |
++----------------+------------+------+---------+-------+
+| California     |   38000000 | NULL | NULL    | NULL  |
+| Texas          |   26000000 | NULL | NULL    | NULL  |
+| New_York       |   19000000 | NULL | NULL    | NULL  |
+| Florida        |   19000000 | NULL | NULL    | NULL  |
+| Illinois       |   13000000 | NULL | NULL    | NULL  |
+| Pennsylvania   |   13000000 | NULL | NULL    | NULL  |
+| Ohio           |   11000000 | NULL | NULL    | NULL  |
+| Michigan       |   10000000 | NULL | NULL    | NULL  |
+| North_Carolina |   10000000 | NULL | NULL    | NULL  |
+| Georgia        |   10000000 | NULL | NULL    | NULL  |
+| New Jersey     |    8900000 | NULL | NULL    | NULL  |
+| Virginia       |    8000000 | NULL | NULL    | NULL  |
+| Washington     |    7000000 | NULL | NULL    | NULL  |
+| Arizona        |    6600000 | NULL | NULL    | NULL  |
+| Massachusetts  |    6600000 | NULL | NULL    | NULL  |
+| Indiana        |    6500000 | NULL | NULL    | NULL  |
+| Tennessee      |    6300000 | NULL | NULL    | NULL  |
+| Missouri       |    6044000 | NULL | NULL    | NULL  |
+| Maryland       |    5900000 | NULL | NULL    | NULL  |
+| Wisconsin      |    5700000 | NULL | NULL    | NULL  |
+| Minnesota      |    5420000 | NULL | NULL    | NULL  |
+| Colorado       |    5200000 | NULL | NULL    | NULL  |
+| Alabama        |    4800000 | NULL | NULL    | NULL  |
+| South_Carolina |    4700000 | NULL | NULL    | NULL  |
+| Louisiana      |    4600000 | NULL | NULL    | NULL  |
+| Kentucky       |    4395000 | NULL | NULL    | NULL  |
+| Oregon         |    4000000 |      | NULL    | NULL  |
+| Oklahoma       |    3800000 | NULL | NULL    | NULL  |
+| Connecticut    |    3500000 | NULL | NULL    | NULL  |
+| Mississippi    |    3000000 | NULL | NULL    | NULL  |
+| Iowa           |    3000000 | NULL | NULL    | NULL  |
+| Arkansas       |    3000000 | NULL | NULL    | NULL  |
+| Utah           |    3000000 | NULL | NULL    | NULL  |
+| Kansas         |    2900000 | NULL | NULL    | NULL  |
+| Nevada         |    2790000 | NULL | NULL    | NULL  |
+| New_Mexico     |    2000000 | NULL | NULL    | NULL  |
+| Nebraska       |    1900000 | NULL | NULL    | NULL  |
+| West_Virginia  |    1800000 | NULL | NULL    | NULL  |
+| Idaho          |    1600000 | NULL | NULL    | NULL  |
+| Hawaii         |    1400000 | NULL | NULL    | NULL  |
+| Maine          |    1300000 | NULL | NULL    | NULL  |
+| New_Hampshire  |    1300000 | NULL | NULL    | NULL  |
+| Montana        |    1000000 | NULL | NULL    | NULL  |
+| Rhode_Island   |    1000000 | NULL | NULL    | NULL  |
+| Delaware       |     925000 | NULL | NULL    | NULL  |
+| South_Dakota   |     800000 | NULL | NULL    | NULL  |
+| Alaska         |     735000 | NULL | NULL    | NULL  |
+| North_Dakota   |     700000 | NULL | NULL    | NULL  |
+| Vermont        |     600000 | NULL | NULL    | NULL  |
+| Wyoming        |     580000 | NULL | NULL    | NULL  |
++----------------+------------+------+---------+-------+
+50 rows in set (0.01 sec)
+
+Part three
+
+The queries found in queries.sql will accopmlish the following task in the following order:
+1.Find out the customer who has ordered the most.
+2.Find out what is the most ordered item.
+3.Find out the total revenue of year 2005
+4.Locate all the employees who work in Boston.
+5.Find out all the employees who report to the Sales Manager (APAC.)
+6.Find out the status of all orders and count how many of each.
+7.List how many customers per each different country.
+8.Find out how many people possess different job titles and what each title is.
+
+-------------------------
+CONTENTS OF QUERIES.SQL
+use classicmodels;
+
+select customername as NumberOne_Customer from customers where customernumber in (select customernumber from payments where amount in ( select max(amount) from payments));
+
+select productname as The_Most_ordered_item from products where productcode in (select productcode from orderdetails where quantityordered in (select max(quantityordered) from orderdetails));
+
+select sum(amount) as Reveneue2005 from payments where paymentDate < '2006-00-00' and paymentDate > '2005-00-00';
+
+
+select firstname as firstname_BOSTON, lastname as lastname_BOSTON from employees where officecode in (select officecode from offices where officecode in (select officecode from offices where city = 'Boston'));
+
+select firstname as firstname_reportstoSalesManager, lastname as lastname_reportstoSalesManager from employees where reportsto in (select employeenumber from employees where jobtitle = 'sales manager (APAC)');
+
+select status, count(status) from orders group by status order by count(status) desc;
+
+select country, count(country) as custcount_by_country from customers group by country order by count(country) desc;
+
+select jobtitle, count(jobtitle) from employees group by jobtitle order by count(jobtitle) asc;
+
+
+
